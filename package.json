@@ -16,7 +16,8 @@
   },
   "scripts": {
     "postinstall": "link-module-alias",
-    "preinstall": "command -v link-module-alias && link-module-alias clean || true"
+    "preinstall": "command -v link-module-alias && link-module-alias clean || true",
+    "nest:api": "mocha tests/scenarios --reporter-options reportDir=reports"
   },
   "_moduleAliases": {
     "$root": "tests",
