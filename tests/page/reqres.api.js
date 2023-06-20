@@ -1,6 +1,6 @@
 import BaseAPI from "$root/page/base.api";
 const ReqresAPI = {
-  index: () => BaseAPI.get("/users"),
+  index: (param) => BaseAPI.get(`/users?page=${param}`),
   show: (id) => BaseAPI.get("/users/" + id),
   register: (data) => BaseAPI.post("/register", data),
   put: (id, data) => BaseAPI.put("/users/" + id, data),

@@ -2,20 +2,11 @@ import { assert } from "chai";
 import ReqresAPI from "$root/page/reqres.api";
 import * as data from "$root/data/user.data";
 
-describe("Get index User", () => {
-  it("Should successfull get index user", async () => {
-    const response = await ReqresAPI.index();
-
-    assert.equal(response.status, 200);
-  });
-});
-
 describe("Get Detail User", () => {
   it("Should successfull detail user", async () => {
     const response = await ReqresAPI.show(data.ID.id);
 
     assert.equal(response.status, 200);
-    console.log(data.ID + "asd");
   });
 });
 
@@ -24,13 +15,13 @@ describe("Register Failed", () => {
     const response = await ReqresAPI.register(data.INVALID_REGISTER);
 
     assert.equal(response.status, 400);
+    assert.equal(
+      response.data.error,
+      "Note: Only defined users succeed registration"
+    );
   });
-});
-
-describe("Register Success", () => {
   it("Should successfull register when insert valid email", async () => {
     const response = await ReqresAPI.register(data.VALID_REGISTER);
-
     assert.equal(response.status, 200);
   });
 });

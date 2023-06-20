@@ -16,3 +16,8 @@ export const VALID_UPDATE = {
   name: "morpheus",
   job: "zion resident",
 };
+
+export const PARAM_USER = {
+  page: 3,
+  per_page: 2,
+};
